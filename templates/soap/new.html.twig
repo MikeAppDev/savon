@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Soap{% endblock %}
+
+{% block body %}
+    <h1>Create new Soap</h1>
+
+    {{ include('soap/_form.html.twig') }}
+
+    <a href="{{ path('app_soap_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Soap index{% endblock %}
+
+{% block body %}
+    <h1>Soap index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Picture</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for soap in soap %}
+            <tr>
+                <td>{{ soap.id }}</td>
+                <td>{{ soap.name }}</td>
+                <td>{{ soap.description }}</td>
+                <td>{{ soap.price }}</td>
+            <td><img class="border border-secondary rounded" style="width:10rem;" src={{soap.picture}}></td> 
+                {# <td>{{ soap.picture }}</td> #}
+                <td>
+                    <a href="{{ path('app_soap_show', {'id': soap.id}) }}">show</a>
+                    <a href="{{ path('app_soap_edit', {'id': soap.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_soap_new') }}">Create new</a>
+{% endblock %}
